@@ -30,30 +30,24 @@ class SwipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        val array = arrayListOf(
+            "Sport",
+            "Google",
+            "IPhone",
+            "Samsung",
+            "Business",
+            "Politics"
+        )
+
+        viewPager.adapter =
+            ViewPagerAdapter(array, requireActivity().supportFragmentManager, lifecycle)
         TabLayoutMediator(
             tabLayout,
             viewPager
         ) { tab, position ->
-            when (position) {
-                0 -> {
-                    tab.text = "Sport"
-                }
-                1 -> {
-                    tab.text = "Google"
-                }
-                2 -> {
-                    tab.text = "IPhone"
-                }
-                3 -> {
-                    tab.text = "Samsung"
-                }
-                4 -> {
-                    tab.text = "Business"
-                }
-                5 ->{
-                    tab.text = "politics"
-                }
+            array.forEachIndexed { index, el ->
+                if (position == index)
+                    tab.text = el
             }
         }.attach()
 
