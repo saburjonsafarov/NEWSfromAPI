@@ -1,4 +1,4 @@
-package tj.saburjonsafarov.newsfromapi.adapters
+package tj.saburjonsafarov.newsfromapi.repository.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context

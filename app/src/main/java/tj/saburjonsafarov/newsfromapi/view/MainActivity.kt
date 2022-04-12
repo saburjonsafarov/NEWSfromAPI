@@ -1,16 +1,16 @@
 package tj.saburjonsafarov.newsfromapi.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
 import tj.saburjonsafarov.newsfromapi.R
-import tj.saburjonsafarov.newsfromapi.databinding.ActivityMainBinding
 import tj.saburjonsafarov.newsfromapi.checks.Checking
+import tj.saburjonsafarov.newsfromapi.databinding.ActivityMainBinding
 import tj.saburjonsafarov.newsfromapi.repository.DBHelper
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         if (!Checking().checkForInternet(this)) {
             AlertDialog.Builder(this)
                 .setTitle("no internet")
+                .setIcon(R.drawable.ic_no_internet)
                 .setPositiveButton("retry") { _, _ ->
                     finish()
                     startActivity(Intent(this, MainActivity()::class.java))
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener(this@MainActivity)
-        openFragmentHelper(HomeFragment())
+        openFragmentHelper(SwipeFragment())
         binding.toolbar.title = "Home"
 
         binding.searchView.isSubmitButtonEnabled = true
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             override fun onQueryTextSubmit(query: String?): Boolean {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.container, SavedsFragment.newInstance(query.toString()))
+                    .replace(R.id.container, HomeFragment.newInstance(query.toString()))
+                    .addToBackStack(null)
                     .commit()
                 return true
             }
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             R.id.homeIcon -> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.container, HomeFragment())
+                    .replace(R.id.container, SwipeFragment())
                     .commit()
                 binding.toolbar.title = "Home"
                 binding.searchView.isVisible = true

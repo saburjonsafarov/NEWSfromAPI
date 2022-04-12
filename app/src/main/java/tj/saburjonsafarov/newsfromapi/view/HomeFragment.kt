@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import tj.saburjonsafarov.newsfromapi.R
-import tj.saburjonsafarov.newsfromapi.adapters.MainAdapter
+import tj.saburjonsafarov.newsfromapi.repository.adapters.MainAdapter
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel.Articles
 import tj.saburjonsafarov.newsfromapi.repository.DBHelper
 import tj.saburjonsafarov.newsfromapi.repository.MainRepository

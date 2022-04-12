@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel.Articles
-import tj.saburjonsafarov.newsfromapi.retrofit.RetrofitInstance
+import tj.saburjonsafarov.newsfromapi.repository.retrofit.RetrofitInstance
 
 class MainRepository(var context: Context) {
     val db = DBHelper(context)

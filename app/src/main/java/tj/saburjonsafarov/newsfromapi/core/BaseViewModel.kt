@@ -10,7 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel
 import tj.saburjonsafarov.newsfromapi.repository.MainRepository
-import tj.saburjonsafarov.newsfromapi.retrofit.RetrofitInstance
+import tj.saburjonsafarov.newsfromapi.repository.retrofit.RetrofitInstance
 
 open class BaseViewModel(app: Application) : AndroidViewModel(app) {
     protected var repository: MainRepository = MainRepository(app)

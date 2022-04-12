@@ -1,8 +1,8 @@
-package tj.saburjonsafarov.newsfromapi.retrofit
+package tj.saburjonsafarov.newsfromapi.repository.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import tj.saburjonsafarov.newsfromapi.retrofit.api.API
+import tj.saburjonsafarov.newsfromapi.repository.retrofit.api.API
 
 class RetrofitInstance {
     companion object {

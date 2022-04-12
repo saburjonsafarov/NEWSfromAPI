@@ -63,7 +63,6 @@ class DBHelper(context: Context) :
         value.put(PUBLISHED_AT, articles.publishedAt)
         value.put(URL, articles.url)
         value.put(URL_TO_IMAGE, articles.urlToImage)
-
         db.insert(table, null, value)
         db.close()
     }

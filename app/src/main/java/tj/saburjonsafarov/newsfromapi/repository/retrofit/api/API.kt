@@ -1,4 +1,4 @@
-package tj.saburjonsafarov.newsfromapi.retrofit.api
+package tj.saburjonsafarov.newsfromapi.repository.retrofit.api
 
 import retrofit2.Call
 import retrofit2.http.GET

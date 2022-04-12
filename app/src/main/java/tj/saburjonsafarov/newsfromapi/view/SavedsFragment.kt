@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import tj.saburjonsafarov.newsfromapi.R
-import tj.saburjonsafarov.newsfromapi.adapters.MainAdapter
+import tj.saburjonsafarov.newsfromapi.repository.adapters.MainAdapter
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel
 import tj.saburjonsafarov.newsfromapi.repository.DBHelper
 import tj.saburjonsafarov.newsfromapi.vm.SavedsViewModel
@@ -63,7 +63,11 @@ class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListene
             requireActivity()
                 .supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.container, DetailFragment.newInstance(it.tag as EverythingModel.Articles))
+                .replace(
+                    R.id.container,
+                    DetailFragment.newInstance(it.tag as EverythingModel.Articles)
+                )
+                .addToBackStack(null)
                 .commit()
         }
     }
