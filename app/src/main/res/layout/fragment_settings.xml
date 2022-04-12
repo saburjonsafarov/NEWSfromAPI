@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".view.SettingsFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner"
+        android:padding="10dp"
+        android:text="@string/title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/cryptoCoinCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/corner"
+        android:buttonTint="@color/black"
+        android:foreground="?selectableItemBackground"
+        android:padding="10dp"
+        android:text="@string/politics" />
+
+    <CheckBox
+        android:id="@+id/AppleCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/corner"
+        android:buttonTint="@color/black"
+        android:foreground="?selectableItemBackground"
+        android:padding="10dp"
+        android:text="@string/sport" />
+
+    <CheckBox
+        android:id="@+id/sportCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/corner"
+        android:buttonTint="@color/black"
+        android:foreground="?selectableItemBackground"
+        android:padding="10dp"
+        android:text="@string/nature" />
+
+    <CheckBox
+        android:id="@+id/russiaCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/corner"
+        android:buttonTint="@color/black"
+        android:foreground="?selectableItemBackground"
+        android:padding="10dp"
+        android:text="@string/science" />
+
+
+</LinearLayout>
