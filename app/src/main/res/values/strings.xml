@@ -19,4 +19,5 @@
     <string name="politics">Politics</string>
     <string name="nature">Nature</string>
     <string name="science">Science</string>
+    <string name="imageview">imageView</string>
 </resources>

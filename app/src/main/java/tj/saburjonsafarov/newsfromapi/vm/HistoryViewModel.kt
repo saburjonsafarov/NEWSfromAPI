@@ -15,7 +15,7 @@ class HistoryViewModel(app:Application):BaseViewModel(app) {
     fun getHistory(): MutableLiveData<ArrayList<EverythingModel.Articles>> {
         val news: MutableLiveData<ArrayList<EverythingModel.Articles>> = MutableLiveData()
         viewModelScope.launch {
-            val newData = repository.getNews(DBHelper.History_TABLE)
+            val newData = repository.getNews(DBHelper.HISTORY_TABLE)
             Log.d("FDDDDF", newData.size.toString())
             news.postValue(newData)
         }

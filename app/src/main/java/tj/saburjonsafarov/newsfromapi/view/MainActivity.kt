@@ -9,7 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
 import tj.saburjonsafarov.newsfromapi.R
-import tj.saburjonsafarov.newsfromapi.checks.Checking
+import tj.saburjonsafarov.newsfromapi.checks.SystemHelper
 import tj.saburjonsafarov.newsfromapi.databinding.ActivityMainBinding
 import tj.saburjonsafarov.newsfromapi.repository.DBHelper
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (!Checking().checkForInternet(this)) {
+        if (!SystemHelper().checkForInternet(this)) {
             AlertDialog.Builder(this)
                 .setTitle("no internet")
                 .setIcon(R.drawable.ic_no_internet)
@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         binding.toolbar.title = "Home"
 
         binding.searchView.isSubmitButtonEnabled = true
-
         binding.searchView.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             R.id.historyIcon -> {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.container, SavedsFragment.newInstance(DBHelper.History_TABLE))
+                    .replace(R.id.container, SavedsFragment.newInstance(DBHelper.HISTORY_TABLE))
                     .commit()
                 binding.toolbar.title = "History"
                 binding.searchView.isVisible = false

@@ -5,7 +5,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 
-class Checking {
+class SystemHelper {
 
     fun checkForInternet(context: Context): Boolean {
         val connectivityManager =

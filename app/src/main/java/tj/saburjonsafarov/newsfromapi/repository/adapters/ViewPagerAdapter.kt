@@ -6,19 +6,22 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import tj.saburjonsafarov.newsfromapi.view.HomeFragment
 
-class ViewPagerAdapter(val array:ArrayList<String>,fragmentManager: FragmentManager, lifecycle: Lifecycle) :
+class ViewPagerAdapter(
+    private val categories: ArrayList<String>,
+    fragmentManager: FragmentManager,
+    lifecycle: Lifecycle
+) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int {
-        return array.size
+        return categories.size
     }
 
     override fun createFragment(position: Int): Fragment {
 
-        array.forEachIndexed() { index,el ->
-            if (position == index){
+        categories.forEachIndexed { index, el ->
+            if (position == index)
                 return HomeFragment.newInstance(el)
-            }
         }
         return HomeFragment.newInstance("Sport")
     }

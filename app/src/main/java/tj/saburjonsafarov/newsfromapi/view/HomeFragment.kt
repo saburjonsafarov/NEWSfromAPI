@@ -44,7 +44,6 @@ class HomeFragment : Fragment(), View.OnClickListener, View.OnLongClickListener 
         return view
     }
 
-
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -95,7 +94,7 @@ class HomeFragment : Fragment(), View.OnClickListener, View.OnLongClickListener 
                 .addToBackStack(null)
                 .commit()
 
-            saveNew(DBHelper.History_TABLE, it.tag as Articles)
+            saveNew(DBHelper.HISTORY_TABLE, it.tag as Articles)
 
         }
     }
@@ -106,7 +105,6 @@ class HomeFragment : Fragment(), View.OnClickListener, View.OnLongClickListener 
             alert.setIcon(R.drawable.ic_favorites)
             alert.setTitle("Add to favorites ?")
             alert.setNegativeButton("no !") { _, _ ->
-
             }
             alert.setPositiveButton("yes !") { _, _ ->
                 saveNew(DBHelper.FAVORITES_TABLE, it.tag as Articles)

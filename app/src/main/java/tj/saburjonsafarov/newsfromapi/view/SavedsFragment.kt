@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,9 +21,10 @@ import tj.saburjonsafarov.newsfromapi.repository.DBHelper
 import tj.saburjonsafarov.newsfromapi.vm.SavedsViewModel
 
 class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListener {
-    private var table = DBHelper.History_TABLE
+    private lateinit var table: String
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewModel: SavedsViewModel
+    private lateinit var blankPageImageView: ImageView
     var q = "Everything"
 
 
@@ -34,8 +37,9 @@ class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListene
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_base, container, false)
+        val view = inflater.inflate(R.layout.fragment_saveds, container, false)
         recyclerView = view.findViewById(R.id.baseFragmentRecyclerView)
+        blankPageImageView = view.findViewById(R.id.isBlankImageView)
         return view
     }
 
@@ -43,7 +47,16 @@ class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListene
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
         viewModel.getNew(table).observe(viewLifecycleOwner) {
-            recyclerView.adapter = MainAdapter(it, requireContext(), this, this)
+            if (it.isNotEmpty()) {
+                blankPageImageView.isVisible = false
+                recyclerView.adapter = MainAdapter(it, requireContext(), this, this)
+
+            } else
+                blankPageImageView.isVisible = true
+            if (table == DBHelper.HISTORY_TABLE)
+                blankPageImageView.setImageResource(R.drawable.history_banner)
+            else if (table == DBHelper.FAVORITES_TABLE)
+                blankPageImageView.setImageResource(R.drawable.favorites_banner)
         }
     }
 
@@ -59,7 +72,6 @@ class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListene
     override fun onClick(p0: View?) {
 
         p0?.let {
-
             requireActivity()
                 .supportFragmentManager
                 .beginTransaction()
@@ -69,6 +81,11 @@ class SavedsFragment : Fragment(), View.OnClickListener, View.OnLongClickListene
                 )
                 .addToBackStack(null)
                 .commit()
+
+            if (table == DBHelper.FAVORITES_TABLE) {
+                DBHelper(requireContext())
+                    .saveNews(DBHelper.HISTORY_TABLE, it.tag as EverythingModel.Articles)
+            }
         }
     }
 

@@ -18,31 +18,28 @@ class DBHelper(context: Context) :
             create table if not exists $FAVORITES_TABLE(
             $ID_COLUMN integer primary key autoincrement,
             $AUTHOR text,
-            $TITLE ext,
+            $TITLE text,
             $DESCRIPTION text,
             $PUBLISHED_AT text,
             $CONTENT text,
             $URL text,
             $URL_TO_IMAGE text,
             UNIQUE ($TITLE, $URL)
-
             )
-            
         """.trimIndent()
-
 
         val query1 =
             """
-            create table if not exists $History_TABLE(
+            create table if not exists $HISTORY_TABLE(
             $ID_COLUMN integer primary key autoincrement,
             $AUTHOR text,
-            $TITLE ext,
+            $TITLE text,
             $DESCRIPTION text,
             $PUBLISHED_AT text,
             $CONTENT text,
             $URL text,
             $URL_TO_IMAGE text,
-            UNIQUE ($TITLE, $URL))            
+            UNIQUE($TITLE, $URL))         
         """.trimIndent()
 
         db?.execSQL(query)
@@ -53,7 +50,7 @@ class DBHelper(context: Context) :
 
 
     @SuppressLint("Range")
-    fun saveNews(table:String, articles: EverythingModel.Articles) {
+    fun saveNews(table: String, articles: EverythingModel.Articles) {
         val db = this.writableDatabase
         val value = ContentValues()
         value.put(TITLE, articles.title)
@@ -67,18 +64,19 @@ class DBHelper(context: Context) :
         db.close()
     }
 
-    fun getNews(table:String): Cursor? {
+    fun getNews(table: String): Cursor? {
         val db = this.readableDatabase
         return db.rawQuery("select * from $table ORDER BY $ID_COLUMN DESC", null)
     }
 
 
-    fun delete(table:String, url:String) {
+    fun delete(table: String, url: String) {
         val db = this.writableDatabase
         db.execSQL("delete from $table where $table.$URL = '$url';")
         db.close()
     }
-    fun delete(table:String) {
+
+    fun delete(table: String) {
         val db = this.writableDatabase
         db.execSQL("delete from $table;")
         db.close()
@@ -87,9 +85,10 @@ class DBHelper(context: Context) :
     companion object {
         private const val DATABASE_NAME = "NEWS_DB"
         private const val DATABASE_VERSION = 1
-        const val ID_COLUMN = "ID"
         const val FAVORITES_TABLE = "FAVORITES"
-        const val History_TABLE = "HISTORY"
+        const val HISTORY_TABLE = "HISTORY"
+
+        const val ID_COLUMN = "ID"
         const val AUTHOR = "AUTHOR"
         const val TITLE = "TITLE"
         const val PUBLISHED_AT = "PUBLISHED_AT"
@@ -97,6 +96,8 @@ class DBHelper(context: Context) :
         const val CONTENT = "CONTENT"
         const val URL = "URL"
         const val URL_TO_IMAGE = "URL_TO_IMAGE"
+
+
     }
 
 

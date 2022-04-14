@@ -26,14 +26,12 @@ open class BaseViewModel(app: Application) : AndroidViewModel(app) {
                     call: Call<EverythingModel>,
                     response: Response<EverythingModel>
                 ) {
-                    val newData = response.body()?.articles!!
-                    articles.postValue(newData)
+                    articles.postValue(response.body()!!.articles)
                 }
 
                 override fun onFailure(call: Call<EverythingModel>, t: Throwable) {
                     Log.i("RESPONSE", "google")
                 }
-
             })
 
 

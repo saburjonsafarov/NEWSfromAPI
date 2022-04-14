@@ -4,12 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/corner.xml" value="0.33" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/corners_bottom.xml" value="0.1535" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.11" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/ic_favorites.xml" value="0.1905" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/ic_home.xml" value="0.1535" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/ic_no_internet.xml" value="0.164" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/drawable/ic_settings.xml" value="0.164" />
-        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/activity_main.xml" value="0.15" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout-v23/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/alert_form.xml" value="0.1" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/category_item.xml" value="0.25" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/corner.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_base.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_collection_object.xml" value="0.18611111111111112" />
@@ -19,6 +23,7 @@
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_history.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_news.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_saveds.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragment_swipe.xml" value="0.18611111111111112" />
         <entry key="..\:/Users/Saburjon Safarov/AndroidStudioProjects/NEWSfromAPI/app/src/main/res/layout/fragmentf_avorite.xml" value="0.22" />

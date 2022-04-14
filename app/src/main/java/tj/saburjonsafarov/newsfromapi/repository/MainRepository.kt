@@ -3,16 +3,25 @@ package tj.saburjonsafarov.newsfromapi.repository
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel
+import tj.saburjonsafarov.newsfromapi.repository.model.CategoryModel
 import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel.Articles
-import tj.saburjonsafarov.newsfromapi.repository.retrofit.RetrofitInstance
 
 class MainRepository(var context: Context) {
+
+    companion object {
+        val categories = arrayListOf(
+            CategoryModel(1, "Sport", true),
+            CategoryModel(2, "IPone", true),
+            CategoryModel(3, "Politics", true),
+            CategoryModel(4, "Business", true),
+            CategoryModel(5, "Football", true),
+            CategoryModel(6, "Programmers", true),
+            CategoryModel(7, "Android developers", true),
+            CategoryModel(8, "Samsung", true)
+        )
+    }
+
+
     val db = DBHelper(context)
 
     fun saveNew(table: String, data: Articles) {
@@ -49,53 +58,7 @@ class MainRepository(var context: Context) {
         return arrayList
     }
 
-    fun saveNew(): LiveData<ArrayList<Articles>> {
-
-        val datas: MutableLiveData<ArrayList<Articles>> = MutableLiveData<ArrayList<Articles>>()
-        RetrofitInstance
-            .newInstance()
-            .everything()
-            .enqueue(object : Callback<EverythingModel> {
-                override fun onResponse(
-                    call: Call<EverythingModel>,
-                    response: Response<EverythingModel>
-                ) {
-                    val newdata = response.body()?.articles!!
-                    datas.postValue(newdata)
-                }
-
-                override fun onFailure(call: Call<EverythingModel>, t: Throwable) {
-                    Log.d("RES", "RES")
-                }
-
-            })
-        return datas
-    }
-
 }
 
 
-//
-//@SuppressLint("Range")
-//fun getNews(): ArrayList<DetailModel> {
-//    val articles = ArrayList<DetailModel>()
-//    val cursor = db.getNews()
-//    cursor!!.moveToFirst()
-//    while (cursor.moveToNext()) {
-//        articles.add(
-//            DetailModel(
-//                cursor.getString(cursor.getColumnIndex(DBHelper.AUTHOR)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.TITLE)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.DESCRIPTION)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.PUBLISHED_AT)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.URL)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.URL_TO_IMAGE)),
-//                cursor.getString(cursor.getColumnIndex(DBHelper.CONTENT))
-//            )
-//        )
-//    }
 
-//    cursor.close()
-//    return articles
-//
-//}
