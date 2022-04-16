@@ -16,7 +16,6 @@ import tj.saburjonsafarov.newsfromapi.repository.adapters.ViewPagerAdapter
 class SwipeFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
-    private lateinit var category: ArrayList<String>
 
 
     override fun onCreateView(
@@ -56,6 +55,8 @@ class SwipeFragment : Fragment() {
             }
         }.attach()
 
+
     }
+
 
 }

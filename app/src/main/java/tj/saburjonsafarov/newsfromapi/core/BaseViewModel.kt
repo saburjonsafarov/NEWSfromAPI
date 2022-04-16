@@ -2,6 +2,7 @@ package tj.saburjonsafarov.newsfromapi.core
 
 import android.app.Application
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +13,7 @@ import tj.saburjonsafarov.newsfromapi.repository.model.EverythingModel
 import tj.saburjonsafarov.newsfromapi.repository.MainRepository
 import tj.saburjonsafarov.newsfromapi.repository.retrofit.RetrofitInstance
 
-open class BaseViewModel(app: Application) : AndroidViewModel(app) {
+open class BaseViewModel(val app: Application) : AndroidViewModel(app) {
     protected var repository: MainRepository = MainRepository(app)
 
     fun getNewsFromRetrofit(q: String): LiveData<ArrayList<EverythingModel.Articles>> {
@@ -25,8 +26,9 @@ open class BaseViewModel(app: Application) : AndroidViewModel(app) {
                 override fun onResponse(
                     call: Call<EverythingModel>,
                     response: Response<EverythingModel>
+
                 ) {
-                    articles.postValue(response.body()!!.articles)
+                    articles.postValue(response.body()?.articles)
                 }
 
                 override fun onFailure(call: Call<EverythingModel>, t: Throwable) {

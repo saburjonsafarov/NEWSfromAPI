@@ -10,16 +10,22 @@ class MainRepository(var context: Context) {
 
     companion object {
         val categories = arrayListOf(
-            CategoryModel(1, "Sport", true),
-            CategoryModel(2, "IPone", true),
-            CategoryModel(3, "Politics", true),
-            CategoryModel(4, "Business", true),
-            CategoryModel(5, "Football", true),
-            CategoryModel(6, "Programmers", true),
-            CategoryModel(7, "Android developers", true),
-            CategoryModel(8, "Samsung", true)
+            CategoryModel(1, "IPhone", true),
+            CategoryModel(2, "Samsung", true),
+            CategoryModel(3, "Sport", true),
+            CategoryModel(4, "Politics", true),
+            CategoryModel(5, "Business", true),
+            CategoryModel(6, "Football", true),
+            CategoryModel(7, "Amazon", true),
+            CategoryModel(8, "Android developers", true),
+            CategoryModel(9, "Nature", true),
+            CategoryModel(10, "History", true),
         )
     }
+
+//    fun getCategory(): ArrayList<CategoryModel> {
+//        return categories
+//    }
 
 
     val db = DBHelper(context)

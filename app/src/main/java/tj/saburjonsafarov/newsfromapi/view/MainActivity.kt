@@ -104,5 +104,4 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             .replace(R.id.container, fragment)
             .commit()
     }
-
 }

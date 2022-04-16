@@ -23,6 +23,7 @@ class ViewPagerAdapter(
             if (position == index)
                 return HomeFragment.newInstance(el)
         }
-        return HomeFragment.newInstance("Sport")
+        return HomeFragment.newInstance(categories[position])
     }
+
 }
